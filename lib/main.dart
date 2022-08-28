@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_examples/auth/auth_screen.dart';
 import 'package:riverpod_examples/counterApp/counter_screen.dart';
 import 'package:riverpod_examples/todoApp/todo_screen.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => const AppPicker(),
         '/todo': (_) => const TodoScreen(),
         '/counter': (_) => const CounterScreen(),
-        // '/auth': (_) => const AuthScreen(),
+        '/auth': (_) => AuthScreen(),
       },
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
@@ -51,6 +52,10 @@ class AppPicker extends StatelessWidget {
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pushNamed('/todo'),
                 child: const Text("TODO APP"),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pushNamed('/auth'),
+                child: const Text("AUTH APP"),
               ),
             ],
           ),

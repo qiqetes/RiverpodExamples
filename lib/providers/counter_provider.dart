@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:riverpod_examples/modesls/counter.dart';
 import 'package:riverpod_examples/repositories/fake_counter_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,9 +19,10 @@ class CounterState extends StateNotifier<Counter> {
   }
 }
 
-final counterProvider = StateNotifierProvider.autoDispose<CounterState, Counter>((ref) {
+final counterProvider =
+    StateNotifierProvider.autoDispose<CounterState, Counter>((ref) {
   ref.onDispose(() {
-    print("disposing");
+    log("disposing");
   });
 
   return CounterState();
